@@ -61,3 +61,6 @@
 
 -- 3. Create a view on CUSTOMER Table
 
+        create view customerview as select * from customer12;
+        select * from customerview;
+        
