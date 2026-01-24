@@ -59,6 +59,8 @@ select Type,avg(Price) as "Average Price" from movie group by Type;
 
 -- b. Display the Movie name and type of movies that are not issued
 
-
+select Title,Type from movie where Mvno not in (select Mvno from invoice);
 
 -- 2. Create a view on the MOVIE table
+
+create view movieview as select * from movie;
