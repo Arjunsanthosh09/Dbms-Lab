@@ -64,3 +64,29 @@ select address1,salaamt from salesman_master where salesmanname='Martin Janes';
 
 --  6.	Change the size of the Salesmanname  column size to varchar2(25 )
 
+Alter table salesman_master modify salesmanname varchar(25);
+
+-- 5.	List the names of all salesmen having ‘n’ as the third letter in their names.
+
+ select salesmanname from salesman_master where salesmanname like '__n%';
+
+--  7.	List all the salesmen who do not stay in “Maharashtra” or “Tamil Nadu”.
+-- ( If Maharashtra” or “Tamil Nadu record is not present update state )
+
+update salesman_master set city='Maharashtra' where SALESMANNO='s003';
+update salesman_master set city='Tamil Nadu' where SALESMANNO='s004';
+select salesmanname from salesman_master where city not in ('Maharashtra','Tamil Nadu');
+
+-- 8.	Find the salesmenname  who earn maximum salary 
+
+select salesmanname from salesman_master where salaamt in (select max(salaamt) from salesman_master);
+
+-- 9.	Delete the details of those salesmen whose remarks is “very poor”.
+
+ select salesmanname from salesman_master where remarks='very poor';
+
+--  10.	Display the average salary of the sales men
+
+ select  AVG(salaamt) as avgsalary from salesman_master;
+
+
